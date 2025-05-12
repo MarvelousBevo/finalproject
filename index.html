@@ -5,151 +5,168 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Website Contracting</title>
         <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
-        <style>
-            body {
-                position: relative; /* Fix the navbar to the screen */
-                font-family: 'Poppins', sans-serif;
-                margin: 0;
-                padding-top: 60px;
-                background-color: #333;
-                padding-top: 60px; /* Adjust this value based on the height of your navbar */
-            }
-            header {
-                background-color: #333;
-                color: white;
-                padding: 20px 0;
-                text-align: center;
-            }
-            .hero {
-                width: 80%;
-                margin-left: auto;
-                margin-right: auto;
-                margin-top: 40vb;
-                margin-bottom: 50vb;
-            }
-            h1 {
-                margin-bottom: 10px;
-            }
-            h2 {
-                margin-top: 0%;
-                color: #333;
-            }
-            footer {
-                background-color: #333;
-                color: white;
-                text-align: center;
-                padding: 10px 0;
-                margin-top: 20vb;
-            }
-            .navigation {
-                position: fixed; /* Fix the navbar to the screen */
-                top: 0;
-                left: 0;
-                width: 100%;
-                background-color: #333;
-                z-index: 1000; /* Ensure it stays above other elements */
-                padding: 10px 0;
-                text-align: center;
-                box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Optional: Add a shadow for better visibility */
-                pointer-events: auto; /* Ensure the navbar does not block interactions */
-            }
-            .navigation a {
-                color: white;
-                text-decoration: none;
-                padding: 10px 20px;
-                margin: 0 10px;
-                border-radius: 5px;
-                transition: background-color 0.3s;
-            }
-            .services-grid {
-                display: flex;
-                flex-wrap: wrap;
-                background-color: #333;
-                justify-content: center;
-            }
-            .service-card {
-                background-color: white;
-                padding: 20px;
-                margin: 10px;
-                border-radius: 10px;
-                box-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
-                width: 240px;
-                height: 300px; /* Set a fixed height for consistent alignment */
-                position: relative; /* Enable positioning for child elements */
-            }
-            .service-card ul {
-                list-style-type: none;
-                padding: 0;
-                margin: 10px 0;
-                text-align: left;
-            }
+        <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Lobster&family=Pacifico&family=Playfair+Display:wght@700&family=Raleway:wght@300&family=Satisfy&family=Shadows+Into+Light&display=swap" rel="stylesheet">
+    <style>
+        body {
+            position: relative;
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            background-color: #22333b; /* Dark background color */
+            color: #eae0d5; /* Light text color */
+            padding-top: 35vb;
+        }
 
-            .service-card ul li {
-                margin: 5px 0;
-            }
+        header {
+            background-color: #22333b; /* Dark header background */
+            color: #eae0d5; /* Light header text */
+            padding: 20px 0;
+            text-align: center;
+        }
 
-            .service-card .price {
-                font-size: 1.2em;
-                font-weight: bold;
-                color: #333;
-                position: absolute; /* Position the price element */
-                bottom: 18px; /* Align to the bottom */
-                right: 15px; /* Align to the right */
-                margin: 0; /* Remove default margin */
-            }
+        .hero {
+            position: relative;
+            width: 80%;
+            margin: 80px auto 50px;
+            text-align: center;
+            color: #eae0d5; /* Light text color */
+        }
 
-            .pricing-toggle {
-                text-align: center;
-                background-color: #333;
-            }
+        .hero-content h1 {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            margin: 0;
+            color: #eae0d5; /* Light text color */
+        }
 
-            .switch {
-                position: relative;
-                display: inline-block;
-                width: 50px;
-                height: 24px;
-                margin-bottom: 20px;
-                
-            }
+        .hero-content p {
+            margin-top: 50px;
+            transform: translateY(300%);
+            color: #eae0d5; /* Light text color */
+        }
 
-            .switch input {
-                opacity: 0;
-                width: 0;
-                height: 0;
-            }
+        h1, h2 {
+            color: #eae0d5; /* Light text color */
+        }
 
-            .slider {
-                position: absolute;
-                cursor: pointer;
-                top: 0;
-                left: 0;
-                right: 0;
-                bottom: 0;
-                background-color: #ccc;
-                transition: 0.4s;
-                border-radius: 24px;
-            }
+        footer {
+            background-color: #22333b; /* Dark footer background */
+            color: #eae0d5; /* Light footer text */
+            text-align: center;
+            padding: 10px 0;
+        }
 
-            .slider:before {
-                position: absolute;
-                content: "";
-                height: 18px;
-                width: 18px;
-                left: 3px;
-                bottom: 3px;
-                background-color: white;
-                transition: 0.4s;
-                border-radius: 50%;
-            }
+        .navigation {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: #22333b; /* Accent color for navigation */
+            z-index: 1000;
+            padding: 10px 0;
+            text-align: center;
+        }
 
-            input:checked + .slider {
-                background-color: #4CAF50;
-            }
+        .navigation a {
+            color: #eae0d5; /* Light text color for links */
+            text-decoration: none;
+            padding: 10px 20px;
+            margin: 0 10px;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
 
-            input:checked + .slider:before {
-                transform: translateX(26px);
-            }
-        </style>
+        .navigation a:hover {
+            background-color: #22333b; /* Dark hover effect */
+        }
+
+        .services-grid {
+            display: flex;
+            flex-wrap: wrap;
+            background-color: #22333b; /* Dark background for services */
+            justify-content: center;
+        }
+
+        .service-card {
+            background-color: #eae0d5; /* Light background for cards */
+            color: #0a0908; /* Dark text color */
+            padding: 20px;
+            margin: 10px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
+            width: 240px;
+            height: 300px;
+            position: relative;
+        }
+
+        .service-card h2 {
+            color: #22333b; /* Accent color for card titles */
+        }
+
+        .service-card ul li {
+            color: #0a0908; /* Dark text color for list items */
+        }
+
+        .service-card .price {
+            font-size: 1.2em;
+            font-weight: bold;
+            color: #22333b; /* Accent color for prices */
+        }
+
+        .pricing-toggle {
+            text-align: center;
+            background-color: #22333b; /* Accent background for toggle */
+            padding-top: 45vb;
+            color: #eae0d5; /* Light text color */
+        }
+
+        .switch {
+            position: relative;
+            display: inline-block;
+            width: 50px;
+            height: 24px;
+            margin-bottom: 20px;
+        }
+
+        .switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #eae0d5; /* Light slider background */
+            transition: 0.4s;
+            border-radius: 24px;
+        }
+
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 18px;
+            width: 18px;
+            left: 3px;
+            bottom: 3px;
+            background-color: #22333b; /* Dark slider knob */
+            transition: 0.4s;
+            border-radius: 50%;
+        }
+
+        input:checked + .slider {
+            background-color: #22333b; /* Accent color when toggled */
+        }
+
+        input:checked + .slider:before {
+            transform: translateX(26px);
+        }
+    </style>
     </head>
     <body>
         <!-- Main Content -->
@@ -160,11 +177,14 @@
                 <a href="packages.html">Packages</a>
                 <a href="planbuilder.html">Plan Builder</a>
                 <a href="samples.html">Samples</a>
-            <div class="hero">
+            </div>
+        </header>
+        <div class="hero">
+            <div class="hero-content">
                 <h1>Vision Website Building Service</h1>
                 <p>Your vision, our expertise.</p>
             </div>
-        </header>
+        </div>
         <body>
             <div class="pricing-toggle">
                 <label class="switch">
@@ -225,7 +245,7 @@
                 <p>&copy; Liem R. Vora | 2025 Vision Websites | Available Under MIT License</p>
             </div>
         </footer>
-        <script>
+        <script defer>
             function togglePricing() {
                 const isAnnual = document.getElementById("pricingSwitch").checked;
                 const prices = document.querySelectorAll(".price");
@@ -244,7 +264,20 @@
                 });
 
                 pricingLabel.textContent = isAnnual ? "Annual" : "Monthly";
-            }
+                }
+                function changeFontRandomly() {
+                    const fonts = [
+                        'Great Vibes', 'Lobster', 'Pacifico', 'Playfair Display', 
+                        'Raleway', 'Satisfy', 'Shadows Into Light', 'Poppins', 
+                        'Comic Sans MS', 'Impact'
+                    ]; // List of fancy font families
+                    const h1Element = document.querySelector('.hero h1');
+                    const randomFont = fonts[Math.floor(Math.random() * fonts.length)];
+                    h1Element.style.fontFamily = randomFont;
+                }
+
+                // Change the font every 1 second
+                setInterval(changeFontRandomly, 500);
         </script>
     </body>
 </html>

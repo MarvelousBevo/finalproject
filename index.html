@@ -26,9 +26,10 @@
         .hero {
             position: relative;
             width: 80%;
-            margin: 80px auto 50px;
+            margin: 80px auto 80px; /* Increased bottom margin for more space below title */
             text-align: center;
-            color: #eae0d5; /* Light text color */
+            color: #eae0d5;
+            padding-bottom: 40vb;
         }
 
         .hero-content h1 {
@@ -51,10 +52,11 @@
         }
 
         footer {
-            background-color: #22333b; /* Dark footer background */
-            color: #eae0d5; /* Light footer text */
+            background-color: #22333b;
+            color: #eae0d5;
             text-align: center;
-            padding: 10px 0;
+            padding-top: 10vb;
+            padding-bottom: 20px;
         }
 
         .navigation {
@@ -77,41 +79,83 @@
             transition: background-color 0.3s;
         }
 
-        .navigation a:hover {
-            background-color: #22333b; /* Dark hover effect */
-        }
-
-        .services-grid {
+        .services-table-container {
+            width: 100vw;
+            min-height: 60vh;
             display: flex;
-            flex-wrap: wrap;
-            background-color: #22333b; /* Dark background for services */
             justify-content: center;
+            align-items: center;
+            margin-bottom: 80px; /* Add space below the chart before the footer */
+            margin-top: 0;
+            padding: 0;
         }
 
-        .service-card {
-            background-color: #eae0d5; /* Light background for cards */
-            color: #0a0908; /* Dark text color */
-            padding: 20px;
-            margin: 10px;
-            border-radius: 10px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
-            width: 240px;
-            height: 300px;
-            position: relative;
+        .services-table {
+            margin: 0 auto; /* Center table horizontally */
+            width: 80vw;
+            max-width: 1000px;
+            border-collapse: collapse;
+            background-color: #22333b;
+            color: #eae0d5;
+            border-radius: 16px;
+            overflow: hidden;
+            font-size: 1.25em;
+            table-layout: fixed;
+            text-align: center; /* Center text in table */
         }
 
-        .service-card h2 {
-            color: #22333b; /* Accent color for card titles */
+        .services-table th, .services-table td {
+            padding: 28px 20px;
+            text-align: center;
+            vertical-align: middle;
+            border-bottom: none; /* Remove row borders */
+            border-right: 1px solid #0a0908;
+            width: 10%;
+            word-break: break-word;
+        }
+        .services-table tbody td {
+            font-size: 0.95em;
+            font-family: 'Poppins', Arial, sans-serif;
+            font-stretch: condensed;
+            letter-spacing: -0.5px;
+            padding: 16px 10px;
         }
 
-        .service-card ul li {
-            color: #0a0908; /* Dark text color for list items */
+        .services-table th:last-child,
+        .services-table td:last-child {
+            border-right: none;
         }
 
-        .service-card .price {
-            font-size: 1.2em;
-            font-weight: bold;
-            color: #22333b; /* Accent color for prices */
+        .services-table th {
+            background-color: #22333b;
+            color: #eae0d5;
+            font-weight: 700;
+            font-size: 1.15em;
+        }
+
+        .services-table tr:last-child td {
+            border-bottom: none;
+        }
+        .select-btn {
+            background-color: #22333b;
+            color: #eae0d5;
+            border: none;
+            border-radius: 5px;
+            padding: 20px 48px;
+            font-size: 0.9em;
+            cursor: pointer;
+            transition: background 0.2s, color 0.2s;
+            margin: 12px auto 0 auto;
+            display: block;
+            position: static;
+            left: unset;
+            bottom: unset;
+            transform: unset;
+            box-shadow: 0 8px 32px 0 rgba(10,9,8,0.25), 0 1.5px 6px 0 rgba(34,51,59,0.15);
+        }
+        .select-btn:hover {
+            background-color: #0a0908;
+            color: #eae0d5;
         }
 
         .pricing-toggle {
@@ -166,6 +210,10 @@
         input:checked + .slider:before {
             transform: translateX(26px);
         }
+        .services-table th:last-child,
+        .services-table td:last-child {
+            border-right: none;
+        }
     </style>
     </head>
     <body>
@@ -185,61 +233,6 @@
                 <p>Your vision, our expertise.</p>
             </div>
         </div>
-        <body>
-            <div class="pricing-toggle">
-                <label class="switch">
-                    <input type="checkbox" id="pricingSwitch" onchange="togglePricing()">
-                    <span class="slider"></span>
-                </label>
-                <span id="pricingLabel">Monthly</span>
-            </div>
-            <div class="services-grid">
-                <div class="service-card">
-                    <h2>Starter</h2>
-                    <ul>
-                        <li>Basic Support</li>
-                        <li>1 Website</li>
-                        <li>500 MB Storage</li>
-                        <li>2GB Ram</li>
-                        <li>1 Gbps Bandwidth</li>
-                    </ul>
-                    <p class="price" data-monthly="5.99" data-annual="57.50">$5.99/month</p>
-                </div>
-                <div class="service-card">
-                    <h2>Professional</h2>
-                    <ul>
-                        <li>Priority Support</li>
-                        <li>5 Websites</li>
-                        <li>10 GB Storage</li>
-                        <li>16GB Ram</li>
-                        <li>5 Gbps Bandwidth</li>
-                    </ul>
-                    <p class="price" data-monthly="19.99" data-annual="191.90">$19.99/month</p>
-                </div>
-                <div class="service-card">
-                    <h2>Organization</h2>
-                    <ul>
-                        <li>24/7 Support</li>
-                        <li>Unlimited Websites</li>
-                        <li>50 GB Storage</li>
-                        <li>64GB Ram</li>
-                        <li>10 Gbps Bandwidth</li>
-                    </ul>
-                    <p class="price" data-monthly="49.99" data-annual="479.90">$49.99/month</p>
-                </div>
-                <div class="service-card">
-                    <h2>Enterprise</h2>
-                    <ul>
-                        <li>Dedicated Support</li>
-                        <li>Custom Solutions</li>
-                        <li>Unlimited Storage</li>
-                        <li>2TB Ram</li>
-                        <li>50 Gbps Bandwidth</li>
-                    </ul>
-                    <p class="price" data-monthly="99.99" data-annual="959.90">$99.99/month</p>
-                </div>
-            </div>
-        </body>
         <footer>
             <div class="footer">
                 <p>&copy; Liem R. Vora | 2025 Vision Websites | Available Under MIT License</p>

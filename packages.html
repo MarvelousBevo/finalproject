@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Website Contracting</title>
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Lobster&family=Pacifico&family=Playfair+Display:wght@700&family=Raleway:wght@300&family=Satisfy&family=Shadows+Into+Light&display=swap" rel="stylesheet">
+    <style>
+        html, body {
+            scroll-behavior: smooth;
+            height: 100%;
+        }
+
+        .services-table-container {
+            scroll-snap-align: center;
+            scroll-margin-top: 10vh; /* Adjust if you have a fixed header */
+        }
+        body {
+            scroll-snap-type: y mandatory;
+        }
+        body {
+            position: relative;
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            background-color: #22333b; /* Dark background color */
+            color: #eae0d5; /* Light text color */
+            padding-top: 35vb;
+        }
+
+        header {
+            background-color: #22333b; /* Dark header background */
+            color: #eae0d5; /* Light header text */
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        .hero {
+            position: relative;
+            width: 80%;
+            margin: 80px auto 80px; /* Increased bottom margin for more space below title */
+            text-align: center;
+            color: #eae0d5;
+            padding-bottom: 40vb;
+        }
+
+        .hero-content h1 {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            margin: 0;
+            color: #eae0d5; /* Light text color */
+        }
+
+        .hero-content p {
+            margin-top: 50px;
+            transform: translateY(300%);
+            color: #eae0d5; /* Light text color */
+        }
+
+        h1, h2 {
+            color: #eae0d5; /* Light text color */
+        }
+
+        footer {
+            background-color: #22333b;
+            color: #eae0d5;
+            text-align: center;
+            padding-top: 10vb;
+            padding-bottom: 20px;
+        }
+
+        .navigation {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: #22333b; /* Accent color for navigation */
+            z-index: 1000;
+            padding: 10px 0;
+            text-align: center;
+        }
+
+        .navigation a {
+            color: #eae0d5; /* Light text color for links */
+            text-decoration: none;
+            padding: 10px 20px;
+            margin: 0 10px;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .services-table-container {
+            width: 100vw;
+            min-height: 60vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 80px; /* Add space below the chart before the footer */
+            margin-top: 0;
+            padding-top: 10vb;
+        }
+
+        .services-table {
+            margin: 0 auto; /* Center table horizontally */
+            width: 80vw;
+            max-width: 1000px;
+            border-collapse: collapse;
+            background-color: #22333b;
+            color: #eae0d5;
+            border-radius: 16px;
+            overflow: hidden;
+            font-size: 1.25em;
+            table-layout: fixed;
+            text-align: center; /* Center text in table */
+        }
+
+        .services-table th, .services-table td {
+            padding: 28px 20px;
+            text-align: center;
+            vertical-align: middle;
+            border-bottom: none; /* Remove row borders */
+            border-right: 1px solid #0a0908;
+            width: 10%;
+            word-break: break-word;
+        }
+        .services-table tbody td {
+            font-size: 0.95em;
+            font-family: 'Poppins', Arial, sans-serif;
+            font-stretch: condensed;
+            letter-spacing: -0.5px;
+            padding: 16px 10px;
+        }
+
+        .services-table th:last-child,
+        .services-table td:last-child {
+            border-right: none;
+        }
+
+        .services-table th {
+            background-color: #22333b;
+            color: #eae0d5;
+            font-weight: 700;
+            font-size: 1.15em;
+        }
+
+        .services-table tr:last-child td {
+            border-bottom: none;
+        }
+        .select-btn {
+            background-color: #0a0908;
+            color: #eae0d5;
+            border: none;
+            border-radius: 5px;
+            padding: 20px 48px;
+            font-size: 0.9em;
+            cursor: pointer;
+            transition: background 0.2s, color 0.2s;
+            margin: 12px auto 0 auto;
+            display: block;
+            box-shadow: 0 8px 32px 0 rgba(10,9,8,0.25), 0 1.5px 6px 0 rgba(34,51,59,0.15);
+        }
+            .select-btn:hover {
+            background-color: #22333b;
+            color: #eae0d5;
+        }
+
+        .pricing-toggle {
+            text-align: center;
+            background-color: #22333b; /* Accent background for toggle */
+            padding-top: 45vb;
+            color: #eae0d5; /* Light text color */
+        }
+
+        .switch {
+            position: relative;
+            display: inline-block;
+            width: 50px;
+            height: 24px;
+            margin-bottom: 20px;
+        }
+
+        .switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #eae0d5; /* Light slider background */
+            transition: 0.4s;
+            border-radius: 24px;
+        }
+
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 18px;
+            width: 18px;
+            left: 3px;
+            bottom: 3px;
+            background-color: #22333b; /* Dark slider knob */
+            transition: 0.4s;
+            border-radius: 50%;
+        }
+
+        input:checked + .slider {
+            background-color: #22333b; /* Accent color when toggled */
+        }
+
+        input:checked + .slider:before {
+            transform: translateX(26px);
+        }
+        .services-table th:last-child,
+        .services-table td:last-child {
+            border-right: none;
+        }
+        .scroll-arrow {
+            position: absolute;
+            left: 50%;
+            bottom: 30px;
+            transform: translateX(-50%);
+            font-size: 3rem;
+            color: #eae0d5;
+            cursor: pointer;
+            animation: floatArrow 1.5s infinite ease-in-out;
+            z-index: 10;
+            user-select: none;
+        }
+
+        @keyframes floatArrow {
+            0% { transform: translateX(-50%) translateY(0); }
+            50% { transform: translateX(-50%) translateY(20px); }
+            100% { transform: translateX(-50%) translateY(0); }
+        }
+    </style>
+    </head>
+    <body>
+        <!-- Main Content -->
+        <header>
+            <div class="navigation">
+                <a href="index.html">Home</a>
+                <a href="contact.html">Contact</a>
+                <a href="packages.html">Packages</a>
+                <a href="planbuilder.html">Plan Builder</a>
+                <a href="samples.html">Samples</a>
+            </div>
+        </header>
+        <div class="hero">
+            <div class="hero-content">
+                <h1>Vision Website Building Service</h1>
+                <p>Here are some of our Prebuilt Plans</p>
+                <div class="scroll-arrow" onclick="document.querySelector('.services-table-container').scrollIntoView({behavior: 'smooth'})">&#8595;</div>
+            </div>
+        </div>
+        <body>
+            <div class="services-table-container">
+                <table class="services-table">
+                    <thead>
+                        <tr>
+                            <th>Starter</th>
+                            <th>Professional</th>
+                            <th>Organization</th>
+                            <th>Enterprise</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Basic Support</td>
+                            <td>Priority Support</td>
+                            <td>24/7 Support</td>
+                            <td>Dedicated Support</td>
+                        </tr>
+                        <tr>
+                            <td>1 Page</td>
+                            <td>5 Pages</td>
+                            <td>Unlimited Pages</td>
+                            <td>Custom Solutions</td>
+                        </tr>
+                        <tr>
+                            <td>1 GB RAM</td>
+                            <td>8 GB RAM</td>
+                            <td>64 GB RAM</td>
+                            <td>258 GB RAM</td>
+                        </tr>
+                        <tr>
+                            <td>4GB</td>
+                            <td>16GB</td>
+                            <td>512GB</td>
+                            <td>2TB</td>
+                        </tr>
+                        <tr>
+                            <td>1 Gbps Bandwidth</td>
+                            <td>5 Gbps Bandwidth</td>
+                            <td>10 Gbps Bandwidth</td>
+                            <td>50 Gbps Bandwidth</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <span class="price" data-monthly="5.99" data-annual="57.50">$5.99/month</span><br>
+                                <button class="select-btn" onclick="location.href='starter.html'">Select</button>
+                            </td>
+                            <td>
+                                <span class="price" data-monthly="19.99" data-annual="191.90">$19.99/month</span><br>
+                                <button class="select-btn" onclick="location.href='professional.html'">Select</button>
+                            </td>
+                            <td>
+                                <span class="price" data-monthly="49.99" data-annual="479.90">$49.99/month</span><br>
+                                <button class="select-btn" onclick="location.href='organization.html'">Select</button>
+                            </td>
+                            <td>
+                                <span class="price" data-monthly="99.99" data-annual="959.90">$99.99/month</span><br>
+                                <button class="select-btn" onclick="location.href='enterprise.html'">Select</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </body>
+        <footer>
+            <div class="footer">
+                <p>&copy; Liem R. Vora | 2025 Vision Websites | Available Under MIT License</p>
+            </div>
+        </footer>
+        <script defer>
+            function togglePricing() {
+                const isAnnual = document.getElementById("pricingSwitch").checked;
+                const prices = document.querySelectorAll(".price");
+                const pricingLabel = document.getElementById("pricingLabel");
+
+                prices.forEach(price => {
+                    const monthly = parseFloat(price.getAttribute("data-monthly"));
+                    const annual = parseFloat(price.getAttribute("data-annual"));
+                    const discount = Math.round(((monthly * 12 - annual) / (monthly * 12)) * 100); // Calculate discount percentage
+
+                    if (isAnnual) {
+                        price.textContent = `$${annual}/year (${discount}% off)`;
+                    } else {
+                        price.textContent = `$${monthly}/month`;
+                    }
+                });
+
+                pricingLabel.textContent = isAnnual ? "Annual" : "Monthly";
+                }
+                function changeFontRandomly() {
+                    const fonts = [
+                        'Great Vibes', 'Lobster', 'Pacifico', 'Playfair Display', 
+                        'Raleway', 'Satisfy', 'Shadows Into Light', 'Poppins', 
+                        'Comic Sans MS', 'Impact'
+                    ]; // List of fancy font families
+                    const h1Element = document.querySelector('.hero h1');
+                    const randomFont = fonts[Math.floor(Math.random() * fonts.length)];
+                    h1Element.style.fontFamily = randomFont;
+                }
+
+                // Change the font every 1 second
+                setInterval(changeFontRandomly, 500);
+        </script>
+    </body>
+</html>
